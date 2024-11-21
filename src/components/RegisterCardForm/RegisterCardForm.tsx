@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as styles from "./RegisterCardForm.module.scss";
+import { dummyUsers, User } from "../../data/dummyUsers";
 
 
 export const RegisterCardForm: React.FC = () => {
+    // This is a dummy implementation of a user state
+    const [currentUser, setCurrentUser] = useState<User | null>(null);  
+
+    useEffect(() => {
+        const randomIndex = Math.floor(Math.random() * dummyUsers.length);
+        setCurrentUser(dummyUsers[randomIndex]);
+    }, []);
+
     return (
         <div className={styles.registerCardForm}>        
-            <h2>Welcome, User</h2>
+            <h2>Welcome, {currentUser ? `${currentUser.firstName}` : "User"}</h2>
 
             <form className={styles.form}>
                 <label htmlFor="cardNumber" className={styles.label}>
