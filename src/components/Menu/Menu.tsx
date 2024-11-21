@@ -4,7 +4,7 @@ import * as styles from "./Menu.module.scss";
 
 export const Menu: React.FC = () => {
     return (
-        <div>
+        <div className={styles.menu}>
             <p>This is menu content</p>
         </div>
     )
